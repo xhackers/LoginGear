@@ -18,7 +18,7 @@ namespace LoginGear.Model
     {
         public FacebookInfo()
         {
-            clientId = ""; // your OAuth2 client id
+            clientId = "625800284156653"; // your OAuth2 client id
             scope = "user_about_me,read_stream,email,user_birthday"; // the scopes for the particular API you're accessing, delimited by "+" symbols
             authorizeUrl = new Uri("https://m.facebook.com/dialog/oauth/"); // the auth URL for the service
             redirectUrl = new Uri("http://clastravel.net/");// the redirect URL for the service
@@ -30,7 +30,7 @@ namespace LoginGear.Model
     {
         public MicrosoftInfo()
         {
-            clientId = ""; // your OAuth2 client id
+            clientId = "000000004010E173"; // your OAuth2 client id
             scope = "wl.basic,wl.emails,wl.offline_access"; // the scopes for the particular API you're accessing, delimited by "+" symbols
             authorizeUrl = new Uri("https://login.live.com/oauth20_authorize.srf"); // the auth URL for the service
             redirectUrl = new Uri("https://login.live.com/oauth20_desktop.srf"); // the redirect URL for the service
@@ -41,7 +41,7 @@ namespace LoginGear.Model
     {
         public GoogleInfo() // Create Google web app (for the redirectUrl)
         {
-            clientId = ""; // your OAuth2 client id
+            clientId = "315685053117-13a5so111567anib7os7ji4kurrev00a.apps.googleusercontent.com"; // your OAuth2 client id
             scope = "https://www.googleapis.com/auth/userinfo.email"; // the scopes for the particular API you're accessing, delimited by "+" symbols
             authorizeUrl = new Uri("https://accounts.google.com/o/oauth2/auth"); // the auth URL for the service
             redirectUrl = new Uri("http://clastravel.net/", UriKind.Absolute); // the redirect URL for the service 
