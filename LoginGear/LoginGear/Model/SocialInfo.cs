@@ -18,7 +18,7 @@ namespace LoginGear.Model
     {
         public FacebookInfo()
         {
-            clientId = ""; // your OAuth2 client id
+            clientId = " "; // your OAuth2 client id
             scope = "user_about_me,read_stream,email,user_birthday"; // the scopes for the particular API you're accessing, delimited by "+" symbols
             authorizeUrl = new Uri("https://m.facebook.com/dialog/oauth/"); // the auth URL for the service
             redirectUrl = new Uri("http://clastravel.net/");// the redirect URL for the service
