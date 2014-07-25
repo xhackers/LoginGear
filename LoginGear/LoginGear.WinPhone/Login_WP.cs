@@ -15,7 +15,7 @@ namespace LoginGear.WinPhone
 {
     public class Login_WP : ILogin
     {
-        public void Show<T>(SocialInfo socialInfo)
+        public void Show(SocialInfo socialInfo)
         {
            // IEnumerable<Account> accounts = AccountStore.Create().FindAccountsForService("Facebook");
 
@@ -44,13 +44,16 @@ namespace LoginGear.WinPhone
 
                         //Debug.WriteLine("Name: " + obj["name"]);
 
-                        LoginGear.App.SuccessfulLoginAction.Invoke();
 
 
                         if (eventArgs.IsAuthenticated)
                         {
                             // Use eventArgs.Account to do wonderful things
-                            LoginGear.App.ParseSocial<T>(json);
+                            //dynamic foo = JsonObject.Parse(json);
+                            LoginGear.App.ParseSocial(json, socialInfo);
+                            LoginGear.App.SuccessfulLoginAction.Invoke();
+
+                        
                         }
                         else
                         {

@@ -23,10 +23,10 @@ namespace LoginGear.Droid
             var activity = this.Context as Activity;
 
             var auth = new OAuth2Authenticator(
-                clientId: LoginPage.clientId, // your OAuth2 client id
-                scope: LoginPage.scope, // the scopes for the particular API you're accessing, delimited by "+" symbols
-                authorizeUrl: LoginPage.authorizeUrl, // the auth URL for the service
-                redirectUrl: LoginPage.redirectUrl); // the redirect URL for the service
+                clientId: LoginOathPage.SocialInfo.clientId, // your OAuth2 client id
+                scope: LoginOathPage.SocialInfo.scope, // the scopes for the particular API you're accessing, delimited by "+" symbols
+                authorizeUrl: LoginOathPage.SocialInfo.authorizeUrl, // the auth URL for the service
+                redirectUrl: LoginOathPage.SocialInfo.redirectUrl); // the redirect URL for the service
             auth.ClearCookiesBeforeLogin = false;
             auth.Completed += async (sender, eventArgs) =>
             {
@@ -40,13 +40,14 @@ namespace LoginGear.Droid
 
                         //Debug.WriteLine("Name: " + obj["name"]);
 
-                        LoginGear.App.SuccessfulLoginAction.Invoke();
+                        
 
-
+                        
                         if (eventArgs.IsAuthenticated)
                         {
                             // Use eventArgs.Account to do wonderful things
-                            LoginGear.App.ParseSocial<FacebookRootObject>(json);
+                            LoginGear.App.ParseSocial(json,LoginOathPage.SocialInfo);
+                            LoginGear.App.SuccessfulLoginAction.Invoke();
                         }
                         else
                         {
