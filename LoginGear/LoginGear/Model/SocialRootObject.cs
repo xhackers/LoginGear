@@ -8,11 +8,6 @@ using System.Threading.Tasks;
 namespace LoginGear.Model
 {
     #region Facebook
-    public class School
-    {
-        public string id { get; set; }
-        public string name { get; set; }
-    }
 
     public class Year
     {
@@ -26,13 +21,6 @@ namespace LoginGear.Model
         public string name { get; set; }
     }
 
-    public class Education
-    {
-        public School school { get; set; }
-        public string type { get; set; }
-        public Year year { get; set; }
-        public Degree degree { get; set; }
-    }
 
     public class Hometown
     {
@@ -58,27 +46,15 @@ namespace LoginGear.Model
         public string name { get; set; }
     }
 
-    public class Work
-    {
-        public string end_date { get; set; }
-        public Employer employer { get; set; }
-        public Location location { get; set; }
-        public Position position { get; set; }
-        public string start_date { get; set; }
-    }
-
     public class FacebookRootObject : SocialRootObject
     {
         public string id { get; set; }
-        public List<Education> education { get; set; }
         public string birthday { get; set; }
         public string email { get; set; }
         public string first_name { get; set; }
         public string gender { get; set; }
-        public Hometown hometown { get; set; }
         public string last_name { get; set; }
         public string link { get; set; }
-        public Location location { get; set; }
         public string locale { get; set; }
         public string middle_name { get; set; }
         public string name { get; set; }
@@ -86,7 +62,6 @@ namespace LoginGear.Model
         public string updated_time { get; set; }
         public string username { get; set; }
         public bool verified { get; set; }
-        public List<Work> work { get; set; }
         public string imageUrl { get; set; }
     }
     #endregion
@@ -148,6 +123,7 @@ namespace LoginGear.Model
     {
         public string id { get; set; }
         public string email { get; set; }
+
 
     }
 }

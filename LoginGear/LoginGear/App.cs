@@ -11,15 +11,14 @@ namespace LoginGear
 {
     public class App
     {
-        static NavigationPage _NavPage;
+        private static INavigation _navPage;
 
         public static Page GetMainPage()
         {
             var profilePage = new ProfilePage();
 
-            _NavPage = new NavigationPage(profilePage);
-
-            return _NavPage;
+            _navPage = profilePage.Navigation;
+            return new NavigationPage(profilePage); ;
         }
 
         public static bool IsLoggedIn
@@ -30,12 +29,21 @@ namespace LoginGear
 
         public static SocialRootObject SocialRootObject;
 
-        public static void ParseSocial<T>(string json)
+        public static async void ParseSocial(string json, SocialInfo socialInfo)
         {
-            var socialRootObject = JObject.Parse(json).ToObject<T>();
-            var o = socialRootObject as SocialRootObject;
-            if (o != null)
+            SocialRootObject socialRootObject;
+            if (socialInfo.GetType() == typeof(FacebookInfo))
+                socialRootObject = JObject.Parse(json).ToObject<FacebookRootObject>();
+            else if (socialInfo.GetType() == typeof(MicrosoftInfo))
+                socialRootObject = JObject.Parse(json).ToObject<MicrosoftRootObject>();
+            else// if (socialInfo.GetType() == typeof(GoogleInfo))
+                socialRootObject = JObject.Parse(json).ToObject<GoogleRootObject>();
+            
+            var o = socialRootObject;
+            if (o != null) { 
                 SocialRootObject = o;
+                await _navPage.PopModalAsync();
+            }
         }
 
         public static Action SuccessfulLoginAction
@@ -44,7 +52,8 @@ namespace LoginGear
             {
                 return new Action(() =>
                 {
-                    _NavPage.Navigation.PopModalAsync();
+                    
+                    //_navPage.PopModalAsync();
                 });
             }
         }

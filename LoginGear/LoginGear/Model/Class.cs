@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LoginGear.Model;
 
-namespace LoginGear
+namespace LoginGear.Model
 {
-    public interface ILogin
+    class Class
     {
-        void Show (SocialInfo socialInfo);
     }
 }

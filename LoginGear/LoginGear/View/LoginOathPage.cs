@@ -10,7 +10,7 @@ namespace LoginGear.View
 {
     public class LoginOathPage : ContentPage
     {
-        public SocialInfo SocialInfo;
+        public static SocialInfo SocialInfo { get; set; }
 
         public LoginOathPage(SocialInfo socialInfo)
         {

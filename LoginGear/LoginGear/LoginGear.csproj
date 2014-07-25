@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="ILogin.cs" />
+    <Compile Include="Model\Class.cs" />
     <Compile Include="Model\NotifyRootObject.cs" />
     <Compile Include="Model\SocialInfo.cs" />
     <Compile Include="Model\SocialRootObject.cs" />

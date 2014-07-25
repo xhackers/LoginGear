@@ -53,7 +53,7 @@ namespace LoginGear.View
         private void SetClicked<T>(Button button, SocialInfo socialInfo)
         {
             if (Device.OS == TargetPlatform.WinPhone)
-                button.Clicked += (sender, e) => DependencyService.Get<ILogin>().Show<T>(socialInfo);
+                button.Clicked += (sender, e) => DependencyService.Get<ILogin>().Show(socialInfo);
             else
                 button.Clicked += (sender, e) => Navigation.PushModalAsync(new LoginOathPage(socialInfo));
         }
